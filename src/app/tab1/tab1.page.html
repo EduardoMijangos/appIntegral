@@ -1,5 +1,5 @@
 <ion-header  class="hider">
-  <ion-toolbar color="primary">
+  <ion-toolbar color="primary" class="ion-text-center">
     <ion-title>
       {{titulo}}
     </ion-title>
@@ -26,18 +26,15 @@
   <h1 class="ion-padding">Lo mas vendido</h1>
 </ion-text>
 
-<swiper-container 
-#swiper
-  [autoplay]="{delay:3000}"
-  [slidesPerView]="2.5">
-  <swiper-slide 
-  *ngFor="let prod of productos">
-  <ion-card>
-    <ion-card-header class="ion-no-padding">
-      <ion-item lines="none">
-         <p>{{prod.name}} </p>
-        <ion-icon *ngIf="prod.stock > 0" slot="end" name="checkmark-circle" color="success"></ion-icon>
-        <ion-icon  *ngIf="prod.stock === 0" slot="end" name="close" color="danger" ></ion-icon>
+<swiper-container #swiper [autoplay]="{delay: 3000}" [slidesPerView]="2">
+  <swiper-slide *ngFor="let prod of productos">
+    <ion-card>
+      <ion-card-header class="ion-no-padding">
+        <ion-item lines="none">
+          <ion-label>{{prod.name}}</ion-label>
+          <ion-icon *ngIf="prod.stock > 0" color="success" slot="end" name="checkmark-circle"></ion-icon>
+          <ion-icon *ngIf="prod.stock === 0" color="danger" slot="end" name="close-circle"></ion-icon>
+        <
       </ion-item>
     </ion-card-header>
     <ion-card-content>
@@ -49,7 +46,16 @@
   </swiper-slide>
 </swiper-container>
 
-<div id="chart"></div>
+<ion-text color="dark" > 
+  <h1 class="ion-padding">Estadisticas</h1>
+</ion-text>
+
+<div style="text-align:center">
+  <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!" [xaxis]="chartOptions.xaxis!"
+    [title]="chartOptions.title!"></apx-chart>
+</div>
+
+
 
 
 </ion-content>

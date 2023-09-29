@@ -1,22 +1,38 @@
-import { Component } from '@angular/core';
-import ApexCharts from 'apexcharts';
+import { Component, ViewChild } from '@angular/core';
+import { register } from 'swiper/element/bundle';
+register(); //Se debe importar en cada componente que se vayan a usar
+import {
+  ChartComponent,
+  ApexAxisChartSeries,
+  ApexChart,
+  ApexXAxis,
+  ApexTitleSubtitle
+} from "ng-apexcharts";
+
+export type ChartOptions = {
+  series: ApexAxisChartSeries;
+  chart: ApexChart;
+  xaxis: ApexXAxis;
+  title: ApexTitleSubtitle;
+};
+
 
 interface productSlide {
-  id: number;
-  imagen: string;
-}
+  id: number,
+  imagen: string,
 
+}
 interface product {
-  id: number;
-  price: number;
-  name: string;
-  stock: number;
-  description: string;
-  state: boolean;
-  imagen: string;
-  codigo: string;
-}
+  id: number,
+  price: number,
+  stock: number,
+  name: string,
+  imagen: string,
+  description: string,
+  state: boolean,
+  codigo: string,
 
+}
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
@@ -24,41 +40,41 @@ interface product {
 })
 export class Tab1Page {
 
-  ionViewDidEnter() {
-    // Obtén los precios de los productos
-    const precios = this.productos.map(producto => producto.price);
+  @ViewChild("chart") chart!: ChartComponent;
+  public chartOptions!: Partial<ChartOptions>;
+  titulo = 'Sistema de inventario';
 
-    // Configura la gráfica de barras
-    const options = {
+
+  constructor() {
+    this.chartOptions = {
+      series: [
+        {
+          name: "My-series",
+          data: [10, 41, 35, 51, 49, 62, 69, 91, 148]
+        }
+      ],
       chart: {
-        type: 'bar',
+        height: 350,
+        type: "bar"
       },
-      plotOptions: {
-        bar: {
-          borderRadius: 4,
-          distributed: true,
-          horizontal: false,
-        },
+      title: {
+        text: "Ventas por mes"
       },
       xaxis: {
-        categories: this.productos.map(producto => producto.name),
-      },
+        categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep"]
+      }
     };
-
-    const chart = new ApexCharts(document.querySelector('#chart'), {
-      ...options,
-      series: [{
-        name: 'Precio',
-        data: precios,
-      }],
-    });
-
-    chart.render();
   }
 
-  constructor() {}
 
-  titulo = 'Sistema de Inventario';
+
+  swiperSlideChanged(e: any) {
+    console.log('Changed', e);
+  }
+  onSwiperInit(event: any) {
+    event.autoplay.start();
+  }
+
 
   masVendidos: productSlide[] = [
     {

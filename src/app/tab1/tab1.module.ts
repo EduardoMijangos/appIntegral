@@ -9,6 +9,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -18,6 +19,7 @@ import { Tab1PageRoutingModule } from './tab1-routing.module';
     FormsModule,
     ExploreContainerComponentModule,
     Tab1PageRoutingModule,
+    NgApexchartsModule
   ],
   declarations: [Tab1Page]
 })
