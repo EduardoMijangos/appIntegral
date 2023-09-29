@@ -14,7 +14,6 @@
     [pagination] ="true"
     [loop]="true"
     [slidesPerView]="1">
-
     <swiper-slide 
     *ngFor="let mv of masVendidos">
       <ion-card class="ion-padding">
@@ -31,29 +30,26 @@
 #swiper
   [autoplay]="{delay:3000}"
   [slidesPerView]="2.5">
-
   <swiper-slide 
   *ngFor="let prod of productos">
-
   <ion-card>
     <ion-card-header class="ion-no-padding">
       <ion-item lines="none">
          <p>{{prod.name}} </p>
         <ion-icon *ngIf="prod.stock > 0" slot="end" name="checkmark-circle" color="success"></ion-icon>
         <ion-icon  *ngIf="prod.stock === 0" slot="end" name="close" color="danger" ></ion-icon>
-  
       </ion-item>
     </ion-card-header>
     <ion-card-content>
       <ion-img [src]="prod.imagen"></ion-img>
       <h3 class="ion-padding">{{ prod.price | currency}}</h3>
     </ion-card-content>
-  
-  </ion-card>
 
+  </ion-card>
   </swiper-slide>
 </swiper-container>
 
+<div id="chart"></div>
 
 
 </ion-content>

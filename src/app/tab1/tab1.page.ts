@@ -1,19 +1,20 @@
 import { Component } from '@angular/core';
-import SwiperCore from 'swiper';
+import ApexCharts from 'apexcharts';
+
 interface productSlide {
-  id: number,
-  imagen: string,
+  id: number;
+  imagen: string;
 }
 
 interface product {
-  id: number,
-  price: number,
-  name: string,
-  stock: number,
-  description:string,
-  state:boolean,
-  imagen: string,
-  codigo:string
+  id: number;
+  price: number;
+  name: string;
+  stock: number;
+  description: string;
+  state: boolean;
+  imagen: string;
+  codigo: string;
 }
 
 @Component({
@@ -23,14 +24,46 @@ interface product {
 })
 export class Tab1Page {
 
+  ionViewDidEnter() {
+    // Obtén los precios de los productos
+    const precios = this.productos.map(producto => producto.price);
+
+    // Configura la gráfica de barras
+    const options = {
+      chart: {
+        type: 'bar',
+      },
+      plotOptions: {
+        bar: {
+          borderRadius: 4,
+          distributed: true,
+          horizontal: false,
+        },
+      },
+      xaxis: {
+        categories: this.productos.map(producto => producto.name),
+      },
+    };
+
+    const chart = new ApexCharts(document.querySelector('#chart'), {
+      ...options,
+      series: [{
+        name: 'Precio',
+        data: precios,
+      }],
+    });
+
+    chart.render();
+  }
+
   constructor() {}
 
-  titulo = 'Sistema de Inventario'
+  titulo = 'Sistema de Inventario';
 
-  masVendidos:  productSlide[] = [
+  masVendidos: productSlide[] = [
     {
       id: 1,
-      imagen:'https://cdn.forbes.com.mx/2016/09/xbox-768x432.png'
+      imagen: 'https://cdn.forbes.com.mx/2016/09/xbox-768x432.png'
     },
     {
       id: 2,
@@ -38,51 +71,60 @@ export class Tab1Page {
     },
     {
       id: 3,
-      imagen:'https://laguiacentral.com/wp-content/uploads/2022/07/nintendoswitcholed-1024x683.jpg'
+      imagen: 'https://laguiacentral.com/wp-content/uploads/2022/07/nintendoswitcholed-1024x683.jpg'
     }
-  ]
+  ];
 
   productos: product[] = [
     {
-      codigo:'qwer',
+      codigo: 'qwer',
       description: 'descripcion xd',
       id: 1,
-      imagen:'https://es.digitaltrends.com/wp-content/uploads/2023/02/martin-katler-playstation-5-ps5.jpg',
+      imagen: 'https://es.digitaltrends.com/wp-content/uploads/2023/02/martin-katler-playstation-5-ps5.jpg',
       name: 'PlayStation 5',
       price: 5000,
       state: true,
       stock: 3
     },
     {
-      codigo:'qwer',
+      codigo: 'qwer',
       description: 'descripcion xd',
       id: 2,
-      imagen:'https://es.digitaltrends.com/wp-content/uploads/2023/02/martin-katler-playstation-5-ps5.jpg',
-      name: ' Control',
+      imagen: 'https://es.digitaltrends.com/wp-content/uploads/2023/02/martin-katler-playstation-5-ps5.jpg',
+      name: 'Control',
       price: 900,
       state: true,
       stock: 5
     },
     {
-      codigo:'qwer',
+      codigo: 'qwer',
       description: 'descripcion xd',
       id: 3,
-      imagen:'https://es.digitaltrends.com/wp-content/uploads/2023/02/martin-katler-playstation-5-ps5.jpg',
+      imagen: 'https://es.digitaltrends.com/wp-content/uploads/2023/02/martin-katler-playstation-5-ps5.jpg',
       name: 'PlayStation 5 ultra xd',
       price: 15000,
       state: false,
       stock: 0
     },
     {
-      codigo:'qwer',
+      codigo: 'qwer',
       description: 'descripcion xd',
       id: 4,
-      imagen:'https://es.digitaltrends.com/wp-content/uploads/2023/02/martin-katler-playstation-5-ps5.jpg',
+      imagen: 'https://es.digitaltrends.com/wp-content/uploads/2023/02/martin-katler-playstation-5-ps5.jpg',
       name: 'audifonos ps5',
       price: 500,
       state: true,
       stock: 3
     },
-  ]
-
+    {
+      codigo: 'qwer',
+      description: 'descripcion xd',
+      id: 4,
+      imagen: 'https://es.digitaltrends.com/wp-content/uploads/2023/02/martin-katler-playstation-5-ps5.jpg',
+      name: 'audifonos ps5 mas caros' ,
+      price: 900,
+      state: true,
+      stock: 28
+    },
+  ];
 }
