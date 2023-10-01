@@ -1,12 +1,71 @@
-<ion-content>
-<ion-header>
-  <ion-toolbar>
-    <ion-button (click)="close()" fill="clear" slot="end">
-      <ion-icon slot="icon-only" name="close"></ion-icon>
+<ion-header >
+  <ion-toolbar color="primary"  class="ion-text-center">
+    <ion-button (click)="close()" fill="clear" slot="start" color="light">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
     </ion-button>
+    Agregar producto
   </ion-toolbar>
 </ion-header>
 
+<ion-content >
+  <div class="form-container">
+    <div class="full-width">
+      <ion-item class="custom-input">
+        <ion-label position="stacked" class="custom-label">Nombre</ion-label>
+        <ion-input type="text" class="custom-field"></ion-input>
+      </ion-item>
 
+      <ion-item class="custom-input">
+        <ion-label position="stacked" class="custom-label">Imagen del producto</ion-label>
+        <ion-input type="Imagen" class="custom-field" placeholder="Seleccionar imagen"></ion-input>
+      </ion-item>
+    </div>
 
+    <div class="grid">
+      <ion-item class="custom-input">
+        <ion-label position="stacked" class="custom-label">Código</ion-label>
+        <ion-input type="text" class="custom-field"></ion-input>
+      </ion-item>
+
+      <ion-item class="custom-input">
+        <ion-label position="stacked">Categoría</ion-label>
+        <ion-select placeholder="Selecciona una categoría" [(ngModel)]="selectedCategoria" class="custom-field">
+          <ion-select-option *ngFor="let categoria of categorias" [value]="categoria">{{ categoria }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item class="custom-input">
+        <ion-label position="stacked" class="custom-label">Precio</ion-label>
+        <ion-input type="number" class="custom-field" inputmode="numeric"></ion-input>
+      </ion-item>
+
+      <ion-item class="custom-input">
+        <ion-label position="stacked" class="custom-label">Inventario</ion-label>
+        <ion-select placeholder="Selecciona una inventario" [(ngModel)]="selectedInventario" class="custom-field">
+          <ion-select-option *ngFor="let inv of inventario" [value]="inventario">{{ inventario }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </div>
+
+    <div class="full-width">
+      <ion-item class="custom-input">
+        <ion-label position="stacked" class="custom-label">Adquisición</ion-label>
+        <ion-input type="date" class="custom-field"></ion-input>
+      </ion-item>
+
+      <ion-item class="custom-input">
+        <ion-label position="stacked" class="custom-label">Vencimiento</ion-label>
+        <ion-input type="date" class="custom-field"></ion-input>
+      </ion-item>
+
+      <ion-item class="custom-input">
+        <ion-label position="stacked" class="custom-label">Stock</ion-label>
+        <ion-input type="number" class="custom-field"></ion-input>
+      </ion-item>
+    </div>
+
+    <ion-button expand="block" shape="round" class="custom-button" type="submit">
+      Guardar
+    </ion-button>
+  </div>
 </ion-content>

@@ -16,16 +16,17 @@
 </ion-text>
 
 <ion-card>
-<ion-row>
-      <ion-col size="4" *ngFor="let cat of categorias">
-        <ion-button class="ion-text-lowercase"  expand="block"  shape="round">
-          <p>
-            {{cat.length > 12 ? cat.substr(0,10) + '...' : cat}}
-          </p>
-        </ion-button>
-      </ion-col>
-</ion-row>
+  <ion-row>
+    <ion-col size="4" *ngFor="let cat of categorias; let i = index">
+      <ion-button class="ion-text-lowercase" expand="block" shape="round" [color]="colores[i % colores.length]">
+        <p>
+          {{cat.length > 12 ? cat.substr(0, 10) + '...' : cat}}
+        </p>
+      </ion-button>
+    </ion-col>
+  </ion-row>
 </ion-card>
+
 
 <ion-button  (click)="openNewProduct()" expand="block" fill="clear" shape="round">
   <ion-icon slot="start" name="add"></ion-icon>

@@ -16,6 +16,9 @@ export class Tab2Page {
 
   categorias = ['Abarrotes', 'Frutas y verduras', 'Limpieza', 'Vinos y Licorez', 'Especias', ' Golosinas']
 
+  colores = ["primary", "secondary", "tertiary", "success", "warning", "danger"];
+
+
   titulo = "Mis productos"
 
   onSearchChange(create: any){
