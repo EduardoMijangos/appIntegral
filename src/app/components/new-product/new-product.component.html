@@ -1,3 +1,4 @@
+<ion-content >
 <ion-header >
   <ion-toolbar color="primary"  class="ion-text-center">
     <ion-button (click)="close()" fill="clear" slot="start" color="light">
@@ -7,7 +8,6 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content >
   <div class="form-container">
     <div class="full-width">
       <ion-item class="custom-input">
@@ -17,7 +17,7 @@
 
       <ion-item class="custom-input">
         <ion-label position="stacked" class="custom-label">Imagen del producto</ion-label>
-        <ion-input type="Imagen" class="custom-field" placeholder="Seleccionar imagen"></ion-input>
+        <ion-input type="file" class="custom-field" placeholder="Seleccionar imagen"></ion-input>
       </ion-item>
     </div>
 
@@ -40,10 +40,9 @@
       </ion-item>
 
       <ion-item class="custom-input">
-        <ion-label position="stacked" class="custom-label">Inventario</ion-label>
-        <ion-select placeholder="Selecciona una inventario" [(ngModel)]="selectedInventario" class="custom-field">
-          <ion-select-option *ngFor="let inv of inventario" [value]="inventario">{{ inventario }}</ion-select-option>
-        </ion-select>
+        <ion-label position="stacked" class="custom-label">Stock</ion-label>
+        <ion-input type="number" class="custom-field" inputmode="numeric"></ion-input>
+
       </ion-item>
     </div>
 
@@ -58,10 +57,7 @@
         <ion-input type="date" class="custom-field"></ion-input>
       </ion-item>
 
-      <ion-item class="custom-input">
-        <ion-label position="stacked" class="custom-label">Stock</ion-label>
-        <ion-input type="number" class="custom-field"></ion-input>
-      </ion-item>
+
     </div>
 
     <ion-button expand="block" shape="round" class="custom-button" type="submit">

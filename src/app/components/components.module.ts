@@ -1,3 +1,4 @@
+import { ViewProductComponent } from './view-product/view-product.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
@@ -8,7 +9,8 @@ import { NewProductComponent } from './new-product/new-product.component';
 
 @NgModule({
   declarations: [
-    NewProductComponent
+    NewProductComponent,
+    ViewProductComponent
   ],
   imports: [
     CommonModule,
@@ -17,7 +19,8 @@ import { NewProductComponent } from './new-product/new-product.component';
     ReactiveFormsModule
   ],
   exports:[
-    NewProductComponent
+    NewProductComponent,
+    ViewProductComponent
   ]
 })
 export class ComponentsModule { }

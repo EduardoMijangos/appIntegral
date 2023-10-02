@@ -36,7 +36,7 @@
 <ion-card>
   <ion-list>
     <ion-item lines="full" *ngFor="let x of [1,1,1,1,1,1,1,1,1,1,1,1,1]">
-      <ion-thumbnail slot="start">
+      <ion-thumbnail slot="start" (click)="openViewProduct()">
         <img  src="https://cdn.forbes.com.mx/2016/09/xbox-768x432.png" />
       </ion-thumbnail>
       <ion-label>
