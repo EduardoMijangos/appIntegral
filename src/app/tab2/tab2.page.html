@@ -22,14 +22,27 @@
 </ion-grid>
 
 <ion-card>
+  <ion-card-header class="ion-no-padding">
+    <ion-item lines="none">
+     <ion-button slot="end" fill="clear" class="ion-no-padding" (click)="verMas()" *ngIf="vermas">
+       <ion-icon name="chevron-down-outline"></ion-icon>
+     </ion-button>
+     <ion-button slot="end" fill="clear" class="ion-no-padding" (click)="verMenos()" *ngIf="!vermas">
+      <ion-icon name="chevron-up-outline"></ion-icon>
+    </ion-button>
+    </ion-item>
+   </ion-card-header>
   <ion-row>
     <ion-col size="4" *ngFor="let cat of categorias">
-      <ion-button class="ion-text-lowercase" expand="block" shape="round" [color]="cat.color" >
+      <ion-button class="ion-text-uppercase" expand="block" shape="round" [color]="cat.color" >
         <p>
           {{cat.length > 12 ? cat.substr(0, 10) + '...' : cat.name}}
         </p>
       </ion-button>
     </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col size="12" *ngIf="!categorias.length" class="ion-text-center ion-padding"> Aun no hay categorias</ion-col>
   </ion-row>
 </ion-card>
 
@@ -49,6 +62,7 @@
       </ion-button>
     </ion-col>
   </ion-row>
+
 </ion-grid>
 
 

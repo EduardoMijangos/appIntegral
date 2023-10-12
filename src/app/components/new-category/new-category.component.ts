@@ -20,7 +20,7 @@ export class NewCategoryComponent implements OnInit {
   ) {
     // Inicializar el formulario y definir los campos y sus validaciones
     this.categoryForm = this.fb.group({
-      name: [''], // Puedes agregar validadores aquí
+      name: ['Validator.required'], // Puedes agregar validadores aquí
       color: [''],
     });
   }

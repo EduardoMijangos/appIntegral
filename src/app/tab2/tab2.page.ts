@@ -33,7 +33,8 @@ export class Tab2Page {
   }
 
   categorias: any= [];
-
+  filtrocategorias: any= [];
+  vermas= true;
   colores = ["primary", "secondary", "tertiary", "success", "warning", "danger"];
   titulo = "Mis productos";
 
@@ -81,10 +82,23 @@ export class Tab2Page {
 this.catserv.getCategorias().subscribe(res => {
   console.log(res);
   this.categorias = res;
+  this.filtrocategorias = res;
+  this.categorias = this.categorias.slice(0, 6);
 },
 err=> {
   console.log(err);
   
 })
+  }
+
+  verMas(){
+    this.vermas = false ;
+    this.categorias = this.filtrocategorias;
+  }
+
+  verMenos(){
+    this.vermas = true;
+    this.categorias = this.categorias.slice(0, 6);
+
   }
 }
