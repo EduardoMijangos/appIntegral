@@ -1,26 +1,32 @@
-<ion-header  class="hider">
-  <ion-toolbar color="primary" class="ion-text-center">
-    <ion-title>
-      {{titulo}}
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-headar titulo="Mis products"></app-headar>
 
 <ion-content >
 
 <ion-searchbar placeholder="Buscar producto" mode="ios" (ionChange)="onSearchChange($event)" [debounce]="250" >
 </ion-searchbar>
 
-<ion-text color="dark" > 
-  <h1 class="ion-padding-start">Categorias</h1>
-</ion-text>
+<ion-grid >
+  <ion-row>
+    <ion-col size="6" class="ion-text-center">
+        <ion-text >
+          <h1>Categorias</h1>
+        </ion-text>
+    </ion-col>
+    <ion-col size="6"  class="ion-margin-top">
+      <ion-button (click)="openNewCategory()" expand="block" fill="clear">
+        <ion-icon slot="end" name="add"></ion-icon>
+        Categoria
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
 
 <ion-card>
   <ion-row>
-    <ion-col size="4" *ngFor="let cat of categorias; let i = index">
-      <ion-button class="ion-text-lowercase" expand="block" shape="round" [color]="colores[i % colores.length]">
+    <ion-col size="4" *ngFor="let cat of categorias">
+      <ion-button class="ion-text-lowercase" expand="block" shape="round" [color]="cat.color" >
         <p>
-          {{cat.length > 12 ? cat.substr(0, 10) + '...' : cat}}
+          {{cat.length > 12 ? cat.substr(0, 10) + '...' : cat.name}}
         </p>
       </ion-button>
     </ion-col>
@@ -28,10 +34,24 @@
 </ion-card>
 
 
-<ion-button  (click)="openNewProduct()" expand="block" fill="clear" shape="round">
-  <ion-icon slot="start" name="add"></ion-icon>
-  Agregar Producto
-</ion-button>
+<ion-grid>
+  <ion-row>
+    <ion-col size="6">
+      <ion-button  (click)="openNewProduct()" expand="block" fill="clear" shape="round">
+        <ion-icon slot="start" name="add"></ion-icon>
+        Nuevo Producto
+      </ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button  (click)="openNewSale()" expand="block" fill="clear" shape="round">
+        <ion-icon slot="start" name="add"></ion-icon>
+        Nueva Venta
+      </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
 
 <ion-card>
   <ion-list>

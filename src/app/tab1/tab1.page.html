@@ -1,10 +1,4 @@
-<ion-header  class="hider">
-  <ion-toolbar color="primary" class="ion-text-center">
-    <ion-title>
-      {{titulo}}
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-headar titulo="Home" ></app-headar>
 
 <ion-content >
 
@@ -31,7 +25,7 @@
     <ion-card>
       <ion-card-header class="ion-no-padding">
         <ion-item lines="none">
-          <ion-label>{{prod.name}}</ion-label>
+          <ion-label>           {{prod.name.length > 18 ? prod.name.substr(0, 14) + '...' : prod.name}} </ion-label>
           <ion-icon *ngIf="prod.stock > 0" color="success" slot="end" name="checkmark-circle"></ion-icon>
           <ion-icon *ngIf="prod.stock === 0" color="danger" slot="end" name="close-circle"></ion-icon>
         <

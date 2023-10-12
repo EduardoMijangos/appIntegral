@@ -126,7 +126,7 @@ export class Tab1Page {
       codigo: 'qwer',
       description: 'descripcion xd',
       id: 4,
-      imagen: 'https://es.digitaltrends.com/wp-content/uploads/2023/02/martin-katler-playstation-5-ps5.jpg',
+      imagen:'https://laguiacentral.com/wp-content/uploads/2022/07/nintendoswitcholed-1024x683.jpg',
       name: 'audifonos ps5',
       price: 500,
       state: true,

@@ -1,0 +1,28 @@
+<ion-content >
+  <ion-header >
+    <ion-toolbar color="primary"  class="ion-text-center">
+      <ion-button (click)="close()" fill="clear" slot="start" color="light">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+      Nueva Venta
+    </ion-toolbar>
+  </ion-header>
+  
+    <div class="form-container">
+      <div class="full-width">
+        <ion-searchbar placeholder="Buscar producto" mode="ios" (ionChange)="onSearchChange($event)" [debounce]="250" >
+        </ion-searchbar>
+  
+        <ion-item class="custom-input">
+          <ion-label position="stacked" class="custom-label">Cantidad</ion-label>
+          <ion-input type="number" class="custom-field" placeholder="Cantidad de productos"></ion-input>
+        </ion-item>
+      </div>
+
+  
+      <ion-button expand="block" shape="round" class="custom-button" type="submit">
+        Crear Venta
+      </ion-button>
+    </div>
+  </ion-content>
+  
