@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     gap: 15px;
+    align-items: center;
   }
   
   .grid {
@@ -57,4 +58,9 @@
   ion-button:hover {
     --background: #0056b3;
   }
+
+  ion-img{
+    width: 100px !important;
+    height: 100px !important;
+text-align: center !important;  }
   

@@ -35,7 +35,6 @@ export class Tab2Page {
   categorias: any= [];
   filtrocategorias: any= [];
   vermas= true;
-  colores = ["primary", "secondary", "tertiary", "success", "warning", "danger"];
   titulo = "Mis productos";
 
   onSearchChange(create: any) {}
