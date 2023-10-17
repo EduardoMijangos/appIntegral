@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController } from '@ionic/angular';
 import { AlertsService } from 'src/app/services/alerts.service';
 import { CategoriesService } from 'src/app/services/categories.service';
@@ -20,7 +20,7 @@ export class NewCategoryComponent implements OnInit {
   ) {
     // Inicializar el formulario y definir los campos y sus validaciones
     this.categoryForm = this.fb.group({
-      name: ['Validator.required'], // Puedes agregar validadores aquí
+      name: ['', Validators.required], // Puedes agregar validadores aquí
       color: [''],
     });
   }
